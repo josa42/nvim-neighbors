@@ -1,6 +1,7 @@
 local M = {}
 
-local command = require('jg.command')
+-- TODO do not use config lib functions in plugins :-|
+local command = require('jg.lib.command')
 
 function M.setup()
   command.define('Ejs',   {}, function() M.open('js')      end)
