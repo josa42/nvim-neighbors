@@ -1,18 +1,15 @@
 local M = {}
 
--- TODO do not use config lib functions in plugins :-|
-local command = require('jg.lib.command')
-
 function M.setup()
-  command.define('Ejs',   {}, function() M.open('js')      end)
-  command.define('Etest', {}, function() M.open('test.js') end)
-  command.define('Ecss',  {}, function() M.open('css')     end)
-  command.define('Tjs',   {}, function() M.open('js',      'tabedit') end)
-  command.define('Ttest', {}, function() M.open('test.js', 'tabedit') end)
-  command.define('Tcss',  {}, function() M.open('css',     'tabedit') end)
-  command.define('Vjs',   {}, function() M.open('js',      'vsplit')  end)
-  command.define('Vtest', {}, function() M.open('test.js', 'vsplit')  end)
-  command.define('Vcss',  {}, function() M.open('css',     'vsplit')  end)
+  vim.cmd("command! Ejs   lua require('jg.file-neightbors').open('js')")
+  vim.cmd("command! Etest lua require('jg.file-neightbors').open('test.js')")
+  vim.cmd("command! Ecss  lua require('jg.file-neightbors').open('css')")
+  vim.cmd("command! Tjs   lua require('jg.file-neightbors').open('js',      'tabedit')")
+  vim.cmd("command! Ttest lua require('jg.file-neightbors').open('test.js', 'tabedit')")
+  vim.cmd("command! Tcss  lua require('jg.file-neightbors').open('css',     'tabedit')")
+  vim.cmd("command! Vjs   lua require('jg.file-neightbors').open('js',      'vsplit')")
+  vim.cmd("command! Vtest lua require('jg.file-neightbors').open('test.js', 'vsplit')")
+  vim.cmd("command! Vcss  lua require('jg.file-neightbors').open('css',     'vsplit')")
 end
 
 function M.open(ext, cmd)
