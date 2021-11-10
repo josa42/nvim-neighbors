@@ -1,1 +1,1 @@
-require('jg.file-neightbors').setup()
+require('jg.neighbors').setup()

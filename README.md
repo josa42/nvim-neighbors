@@ -1,4 +1,4 @@
-# Nvim File Neightbors
+# Nvim Neighbors
 
 A naive file navigation plugin for neovim.
 
