@@ -10,7 +10,8 @@ function M.setup()
   }
 
   local actions = {
-    test = 'test.js',
+    src = '{ext}',
+    test = 'test.{ext}',
     js = 'js',
     css = 'css',
   }
@@ -24,8 +25,12 @@ end
 
 function M.open(ext, cmd)
   cmd = cmd or 'edit'
-  local fname = vim.fn.substitute(vim.fn.expand('%:r'), '\\v\\.tests?', '', '')
-  vim.cmd(cmd .. ' ' .. fname .. '.' .. ext)
+  ext = vim.fn.substitute(ext, '\\v\\{ext\\}', vim.fn.expand('%:e'), '')
+
+  local fname = vim.fn.substitute(vim.fn.expand('%:r'), '\\v[._]tests?', '', '')
+  local sep = ext == 'test.go' and '_' or '.'
+
+  vim.cmd(cmd .. ' ' .. fname .. sep .. ext)
 end
 
 function l.cmd(ext, cmd)
