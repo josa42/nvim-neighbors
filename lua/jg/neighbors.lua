@@ -6,6 +6,7 @@ function M.setup()
     E = 'edit',
     T = 'tabedit',
     V = 'vsplit',
+    X = 'split',
   }
 
   local actions = {
