@@ -18,7 +18,7 @@ function M.setup()
 
   for key, cmd in pairs(cmds) do
     for action, ext in pairs(actions) do
-      vim.api.nvim_add_user_command(key .. action, l.cmd(ext, cmd), {})
+      vim.api.nvim_create_user_command(key .. action, l.cmd(ext, cmd), {})
     end
   end
 end
